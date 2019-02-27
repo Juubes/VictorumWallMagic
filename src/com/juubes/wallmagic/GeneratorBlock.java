@@ -38,6 +38,8 @@ public class GeneratorBlock {
 			return true;
 		Material mat = loc.getBlock().getType();
 		switch (mat) {
+
+		// All the blocks to overflow on
 		case AIR:
 		case LONG_GRASS:
 		case DOUBLE_PLANT:
@@ -46,6 +48,9 @@ public class GeneratorBlock {
 		case YELLOW_FLOWER:
 		case STATIONARY_LAVA:
 		case STATIONARY_WATER:
+		case TORCH:
+		case REDSTONE_TORCH_OFF:
+		case REDSTONE_TORCH_ON:
 			break;
 		default:
 			return false;

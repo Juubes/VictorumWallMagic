@@ -1,8 +1,6 @@
 package com.juubes.wallmagic;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.bukkit.Bukkit;
@@ -57,19 +55,19 @@ public final class WallMagic extends JavaPlugin implements Runnable {
 	public void run() {
 		tick++;
 		Set<GeneratorBlock> blocksDead = new HashSet<>(3);
-		for (GeneratorBlock block : generators) {
+		for (GeneratorBlock block : GENERATORS) {
 			boolean alive = block.generate(tick);
 			if (!alive)
 				blocksDead.add(block);
 		}
 		for (GeneratorBlock generatorBlock : blocksDead) {
-			generators.remove(generatorBlock);
+			GENERATORS.remove(generatorBlock);
 		}
 	}
 
-	private final static List<GeneratorBlock> generators = new ArrayList<>();
+	private final static Set<GeneratorBlock> GENERATORS = new HashSet<>();
 
 	public void createGenerator(GeneratorBlock generator) {
-		generators.add(generator);
+		GENERATORS.add(generator);
 	}
 }
