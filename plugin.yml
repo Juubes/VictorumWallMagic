@@ -1,0 +1,9 @@
+name: WallMagic
+version: 6.9
+main: com.juubes.wallmagic.WallMagic
+authors: [Juubes]
+description: A GenBucket plugin for factions.
+website: https://parinacraft.net
+commands:
+  wallmagic:
+  
