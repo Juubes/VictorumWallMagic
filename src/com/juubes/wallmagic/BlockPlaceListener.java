@@ -3,16 +3,19 @@ package com.juubes.wallmagic;
 import java.util.List;
 
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class BucketPlaceListener implements Listener {
+import net.parinacraft.victorum.Victorum;
+
+public class BlockPlaceListener implements Listener {
 	private final WallMagic pl;
 
-	public BucketPlaceListener(WallMagic pl) {
+	public BlockPlaceListener(WallMagic pl) {
 		this.pl = pl;
 	}
 
@@ -32,7 +35,16 @@ public class BucketPlaceListener implements Listener {
 		if (!lore.get(0).contentEquals("§7#FG462"))
 			return;
 
-		// TODO: Check if on own land
+		Player p = e.getPlayer();
+		int playerFac = Victorum.get().getPlayerDataHandler().getPlayerData(p.getUniqueId()).getFactionID();
+		int claimFacID = Victorum.get().getClaimHandler()
+				.getClaim(p.getLocation().getChunk().getX(), p.getLocation().getChunk().getZ()).getFactionID();
+		// Check if on own land
+		if (playerFac == 0 || playerFac != claimFacID) {
+			p.sendMessage("§eTämä ei ole omaa maatasi.");
+			e.setCancelled(true);
+			return;
+		}
 
 		GeneratorBlock generator = new GeneratorBlock(pl.getConfig().getInt("SPEEEEEEED"), b.getLocation(),
 				item.getType(), item.getData().getData());

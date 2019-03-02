@@ -8,6 +8,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.parinacraft.victorum.Victorum;
+
 public class ItemStackBuilder {
 	private final ItemStack item;
 
@@ -25,6 +27,7 @@ public class ItemStackBuilder {
 
 	public ItemStackBuilder(Material mat, int amount, byte data) {
 		this.item = new ItemStack(mat, amount, data);
+		Victorum.getPlugin();
 	}
 
 	public ItemStackBuilder hideEnchantments(boolean b) {

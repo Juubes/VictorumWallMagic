@@ -1,9 +1,10 @@
 name: WallMagic
-version: 6.9
+version: 1.0.0-RELEASE
 main: com.juubes.wallmagic.WallMagic
 authors: [Juubes]
-description: A GenBucket plugin for factions.
+description: A GenBucket plugin for Victorum.
 website: https://parinacraft.net
+depend: [Victorum]
 commands:
   wallmagic:
   

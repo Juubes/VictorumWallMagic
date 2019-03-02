@@ -16,7 +16,7 @@ public final class WallMagic extends JavaPlugin implements Runnable {
 	public void onEnable() {
 		saveDefaultConfig();
 		final int SPEED = getConfig().getInt("SPEEEEEEED");
-		Bukkit.getPluginManager().registerEvents(new BucketPlaceListener(this), this);
+		Bukkit.getPluginManager().registerEvents(new BlockPlaceListener(this), this);
 		Bukkit.getScheduler().runTaskTimer(this, this, 0, SPEED);
 
 		getCommand("wallmagic").setExecutor((CommandSender sender, Command cmd, String lbl, String[] args) -> {
