@@ -2,6 +2,7 @@ package com.juubes.wallmagic;
 
 import java.util.List;
 
+import org.bukkit.Chunk;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,8 +38,8 @@ public class BlockPlaceListener implements Listener {
 
 		Player p = e.getPlayer();
 		int playerFac = Victorum.get().getPlayerDataHandler().getPlayerData(p.getUniqueId()).getFactionID();
-		int claimFacID = Victorum.get().getClaimHandler()
-				.getClaim(p.getLocation().getChunk().getX(), p.getLocation().getChunk().getZ()).getFactionID();
+		Chunk ch = b.getLocation().getChunk();
+		int claimFacID = Victorum.get().getClaimHandler().getClaim(ch.getX(), ch.getZ()).getFactionID();
 		// Check if on own land
 		if (playerFac == 0 || playerFac != claimFacID) {
 			p.sendMessage("§eTämä ei ole omaa maatasi.");

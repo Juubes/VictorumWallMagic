@@ -36,6 +36,9 @@ public class GeneratorBlock {
 	public boolean generate(int tick) {
 		if (tick % SPEED != tickModus)
 			return true;
+		if (loc.getY() <= 0)
+			return false;
+
 		Material mat = loc.getBlock().getType();
 		switch (mat) {
 
