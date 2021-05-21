@@ -3,12 +3,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.juubes</groupId>
-	<artifactId>WallMagic</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>WallMagic</name>
+	<artifactId>vwm</artifactId>
+	<version>1.0</version>
+	<name>VictorumWallMagic</name>
 	<description>A wall generating plugin for factions.</description>
+
+	<repositories>
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<defaultGoal>package</defaultGoal>
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -19,13 +29,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>res</directory>
+			</resource>
+		</resources>
 	</build>
-	<repositories>
-		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.spigotmc</groupId>
@@ -33,7 +44,11 @@
 			<version>1.8.8-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.juubes</groupId>
+			<artifactId>victorum</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-
 </project>

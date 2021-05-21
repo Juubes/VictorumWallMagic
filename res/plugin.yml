@@ -1,0 +1,11 @@
+name: VictorumWallMagic
+version: 1.0
+main: com.juubes.wallmagic.WallMagic
+authors:
+- Juubes
+description: A GenBucket plugin for Victorum.
+website: https://victorum.me
+depend:
+- Victorum
+commands:
+  wallmagic: null
